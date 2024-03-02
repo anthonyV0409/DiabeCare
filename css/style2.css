@@ -1,0 +1,59 @@
+.bad{
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #a22;
+    color: #fff    
+}
+
+.ok{
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #1e6;
+    color: #fff
+}
+.mb{
+    margin-bottom: 20px;
+}
+
+
+
+.tablax{
+    border: 3px groove;
+    width: 40%;
+}
+
+th{
+    text-align: center;
+}
+
+#btnnn{
+    margin-top: 1.4em;
+}
+
+.img-fluid{
+    display:block;
+    margin:auto;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group i {
+    position: absolute;
+    left: 0; /* Ajusta la posición horizontal del icono según tu preferencia */
+    top: 63%;
+    transform: translateY(-50%);
+    color: #aaa; /* Ajusta el color del icono según tu preferencia */
+    padding-left: 10px; /* Ajusta el espacio entre el icono y el borde del campo de entrada */
+}
+
+.form-group input {
+    padding-left: 30px; /* Ajusta el espacio entre el icono y el borde del campo de entrada */
+}
+
+.bg-color{
+    background-color: #d7f4ff;
+}

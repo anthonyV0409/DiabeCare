@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+    <link rel="icon" type="image.jpg" href="img/censoimg.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://file.myfontastic.com/t5tNwfwUapz4yDzK3B6sfe/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-auto">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/DiabeCareLogo2.png" width="auto" height="auto" class="d-inline-block align-top" alt="DiabeCareLogo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" aria-current="page" href="html/registroglucosa.html">Registro Glucosa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="html/diagnostico.html">Diagnóstico</a>
+                    </li>
+                </ul>
+                <span id="nombre-usuario" class="text-light"></span>
+                <button id="cerrar-sesion-index" class="btn btn-primary" onclick="cerrardesdeindex()">Cerrar sesión</button>
+            </div>
+        </nav>
+    </header>
+    
+<br>
+
+    <div id="myCarousel" class="carousel slide m-3" data-ride="carousel">
+        <!-- Indicadores (puntos) -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Imágenes del carrusel -->
+        <div class="owl-carousel owl-theme">
+            <div class="item"><img src="img/diabetesimg1.jpg" class="imagen" alt="Imagen 1"></div>
+            <div class="item"><img src="img/diabetesimg2.png" class="imagen" alt="Imagen 2"></div>
+            <div class="item"><img src="img/diabetesimg3.png" class="imagen" alt="Imagen 3"></div>
+        </div>
+
+    <section class="d-flex flex-column justify-content-center align-items-center pt-5 text-center w-100 m-auto" id="intro">
+        <h1 class="p-3 fs-1 fw-bolder border-top border-3 logo">Diabe<span class="care">Care</span></h1>
+    </section>
+
+    <div class="container">
+        <h2 class="text-center">¿Qué es la diabetes?</h2>
+        <p>La diabetes es una enfermedad crónica que afecta la forma en que tu cuerpo utiliza la glucosa (azúcar) en sangre. Normalmente, el páncreas produce insulina, una hormona que regula los niveles de azúcar en sangre. En las personas con diabetes, el cuerpo tiene dificultades para producir suficiente insulina o utilizarla eficazmente. Esto puede llevar a niveles elevados de azúcar en sangre, lo que, a largo plazo, puede causar complicaciones de salud.</p>
+        <p><b>Los síntomas de la diabetes incluyen:</b> aumento de la sed y de las ganas de orinar, aumento del apetito, fatiga, visión borrosa, entumecimiento u hormigueo en las manos o los pies y úlceras que no cicatrizan.
+            pérdida de peso sin razón aparente.</p>
+        <p>El manejo adecuado de la diabetes implica la monitorización constante de los niveles de azúcar en sangre, una alimentación equilibrada, el ejercicio y, en algunos casos, la administración de insulina u otros medicamentos. Un control constante es fundamental para prevenir complicaciones y llevar una vida saludable.</p>
+    </div>
+
+    <br><br><hr>
+
+    <h2 class="text-center">Tipos de diabetes</h2>
+<div class="text-center">
+    <img src="img\diabetesimg.png" alt="Imagen no encontrada" class="img-fluid" style="border-radius: 4%; border-color: rgb(116, 193, 245); border-style: groove;">
+</div>
+<br><br><br>
+</div>
+
+<footer class="footer">
+    <div class="bg-dark text-light pt-2">
+        <div class="text-center">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"><img src="img/icono1.png " class="rounded" alt="facebookicon" title="Facebook" width="5%"></a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer noopener"><img src="img/icono2.png " class="rounded" alt="facebookicon" title="Facebook" width="5%"></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer noopener"><img src="img/icono3.png " class="rounded" alt="facebookicon" title="Facebook" width="5%"></a>
+        </div>
+        <p class="copy text-center no-margin">&copy; Todos los derechos reservados al creador - 2023 <br> DiabeCare</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/session.js"></script>
+<script src="js/carousel.js"></script>
+
+</body>
+</html>

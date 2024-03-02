@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Registro de Glucosa</title>
+    <link rel="icon" type="image.jpg" href="../img/censoimg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-auto">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/DiabeCareLogo2.png" width="auto" height="auto" class="d-inline-block align-top" alt="DiabeCareLogo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" aria-current="page" href="registroglucosa.html">Registro Glucosa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="diagnostico.html">Diagnóstico</a>
+                    </li>
+                </ul>
+                <span id="nombre-usuario" class="text-light"></span>
+                <button id="xcerrar-sesion" class="btn btn-primary" onclick="cerrargeneral()">Cerrar sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center">
+        <h1 class="mt-5">Registro de Niveles de Glucosa</h1>
+        <img src="../img/registroglucosa.png" alt="RegistroGlucosa" class="img-fluid mx-auto" style="max-width: 500px; height: auto; border-style: groove; border-color: rgb(116, 193, 245); border-radius: 4%;"  >
+        <form method="POST" id="glucose-form" action="http://127.0.0.1:8000/create_registro_glucosa" class="mt-4">
+            <div class="mb-3">
+                <label for="glucose-level" class="form-label">Nivel de Glucosa (mg/dL)</label>
+                <input type="number" class="form-control" id="glucose-level" name="nivel_glucosa" min="0" max="300" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Registrar Glucosa</button>
+            </div>
+        </form>
+        <div class="container mt-4">
+            <p><b>Aquí puedes registrar tus niveles de glucosa. Ingresa tu nivel de glucosa actual y la fecha en la que lo registras. Los datos se almacenarán para su seguimiento y análisis.</b></p>
+        </div>
+        
+        <a href="historial_registro_glucosa.html" class="text-center">Ver historial de registros de glucosa</a>
+    </div>
+    
+    <footer class="footer mt-5">
+      <div class="bg-dark text-light pt-2">
+          <div class="text-center">
+              <a href="https://facebook.com" target="_blank"><img src="../img/icono1.png " class="rounded" alt="facebookicon" title="Facebook" width="5%" ></a>
+              <a href="https://twitter.com" target="_blank"><img src="../img/icono2.png " class="rounded" alt="facebookicon" title="Facebook" width="5%" ></a>
+              <a href="https://youtube.com" target="_blank"><img src="../img/icono3.png " class="rounded" alt="facebookicon" title="Facebook" width="5%" ></a>
+          </div>
+          <p class="copy text-center no-margin">&copy; Todos los derechos reservados al creador - 2023 <br> DiabeCare</p>
+      </div>
+  </footer>
+
+<!-- Modal de recordatorio -->
+<div class="modal fade" id="recordatorioModal" tabindex="-1" role="dialog" aria-labelledby="recordatorioModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="recordatorioModalLabel">Recordatorio Importante</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Se recomienda medir e ingresar el nivel de glucosa en ayunas para obtener una valoración precisa. Esto significa que debes medir tu nivel de glucosa antes de haber comido o bebido algo durante al menos 8 horas.</p>
+                <p>Aquí hay algunos consejos para medirse la glucosa en ayunas:</p>
+                <ul>
+                    <li>No coma ni beba nada, excepto agua, durante las 8 horas anteriores a la prueba.</li>
+                    <li>Siga las instrucciones de su médico o el fabricante del medidor de glucosa.</li>
+                    <li>Lávese las manos con agua y jabón antes de medirse la glucosa.</li>
+                    <li>Use una tira de prueba fresca para cada lectura.</li>
+                    <li>Siga las instrucciones del fabricante para insertar la tira de prueba en el medidor.</li>
+                    <li>Coloque una gota de sangre en la tira de prueba.</li>
+                    <li>Espere a que el medidor le dé una lectura.</li>
+                    <li>Anote la lectura <a href="#glucose-level" id="cerrarModal">aquí</a>.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="recordatorioModalEntendidoBtn">Entendido</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de registro exitoso -->
+<div class="modal fade" id="registroExitosoModal" tabindex="-1" role="dialog" aria-labelledby="registroExitosoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registroExitosoModalLabel">Registro Exitoso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¡El nivel de glucosa se ha registrado exitosamente!</p>
+                <!-- Enlace para ir a historial_registro_glucosa.html -->
+                
+            </div>
+            <div class="modal-footer">
+                <a href="historial_registro_glucosa.html" class="btn btn-primary">Ver historial</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de error -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Hubo un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="../js/registro_glucosa.js"></script>
+    <script src="../js/session.js"></script>
+</body>
+</html>

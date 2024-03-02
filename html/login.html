@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iniciar sesion</title>
+    
+    <link rel="icon" type="image/jpg" href="../img/Logo.png"/>
+    <link href="https://file.myfontastic.com/t5tNwfwUapz4yDzK3B6sfe/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    
+  
+    <style>
+
+        body{
+        background-image: url('../img/background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+
+        .bg{
+            background-image: url(../img/diabetesloginimg.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        
+    </style>
+   
+    
+    
+</head>
+
+  
+<body class="bg-dark">
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+          <a href="#"><img src="../img/DiabeCareLogo2.png" width="auto" height="auto" class="d-inline-block align-top" alt=""></a>
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            </div>
+            
+            <div class="d-flex" id="barra">
+            <a class="nav-link btn btn-outline text-light" aria-current="page" href="../html/registro.html">Registrarse</a>
+        </div>
+            <div class="d-flex" id="barra">
+              <a class="nav-link btn btn-outline text-light" aria-current="page" href="../html/login.html">Iniciar sesion</a>
+            </div>
+          </div>
+          </div>
+        </nav>
+      </header><br>
+    <div class="container w-75 bg-primary mt-5 mb-5 rounded shadow border border-primary">
+        <div class="row align-items-center align-items-stretch">
+            <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg"></div>
+
+            <div class="col bg-white p-5 col-lg-7 col-xl-6 rounded-end">
+                <div class="text-end">
+                    <!-- Icono de usuario -->
+                    <span class="fas fa-user fa-2x"></span>
+                </div>
+                <h2 class="fw-bold text-center pt-5 mb-5">Iniciar sesión</h2>
+
+                <form method="POST" id="formulario-de-login" action="http://127.0.0.1:8000/login">
+                    <div class="form-group">
+                        <label class="small mb-1" id="usuario" for="inputEmailAddress">
+                            <i class="fas fa-user"></i> <!-- Icono de usuario -->
+                        </label>
+                        
+                        <input class="form-control py-4 bg-color" id="inputEmailAddress" name="username" type="text"
+                            placeholder="Usuario" /> 
+                    </div>
+                    <div class="form-group">
+                        <label class="small mb-1" id="contraseña" for="inputPassword">
+                            <i class="fas fa-lock"></i> <!-- Icono de candado -->
+                        </label>
+                        <input class="form-control py-4 bg-color" id="inputPassword" name="password" type="password"
+                            placeholder="Contraseña" />
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                            <label class="custom-control-label" for="rememberPasswordCheck">Recordar contraseña</label>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                        <div>
+                            ¿No tienes cuenta? <a class="small" href="../html/registro.html">Registrarse</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    </div>
+                </form>
+
+                <br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-error" tabindex="-1" aria-labelledby="modal-error-label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-error-label">Error de inicio de sesión</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <p>Usuario o contraseña incorrecta. Por favor, inténtalo de nuevo.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-exito" tabindex="-1" aria-labelledby="modal-exito-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-exito-label">Inicio de sesión exitoso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bienvenido, <span id="nombre-usuario-modal"></span>!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="cerrar-modal-exito">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+      
+    <script src="../js/login.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

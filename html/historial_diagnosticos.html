@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Historial de Diagnósticos</title>
+    <link rel="icon" type="image/jpg" href="../img/censoimg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-auto">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/DiabeCareLogo2.png" width="auto" height="auto" class="d-inline-block align-top" alt="DiabeCareLogo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="links">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" aria-current="page" href="registroglucosa.html">Registro Glucosa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="diagnostico.html">Diagnóstico</a>
+                    </li>
+                </ul>
+                <span id="nombre-usuario" class="text-light"></span>
+                <button id="cerrar-sesion" class="btn btn-primary" onclick="cerrargeneral()">Cerrar sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center mt-5">
+        <h1 class="mt-5">Historial de Diagnósticos</h1>
+        
+        <!-- Aquí irá la tabla con el historial de diagnósticos -->
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered table-hover table-striped mt-4 border-primary">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Embarazos</th>
+                        <th scope="col">Nivel de Glucosa</th>
+                        <th scope="col">Presion arterial</th>
+                        <th scope="col">Grosor cutaneo</th>
+                        <th scope="col">Insulina</th>
+                        <th scope="col">IMC</th>
+                        <th scope="col">FunciónPedigriDiabetes</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Resultado</th>
+                        <th scope="col">Fecha del Diagnóstico</th>
+                    </tr>
+                </thead>
+                <tbody id="historial-diagnosticos-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" id="paginacion-diagnostico-previous" onclick="clickPrevious()">
+                    <span aria-hidden="true">«Anterior</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" id="paginacion-diagnostico-next" onclick="clickNext()">
+                    <span aria-hidden="true">Siguiente»</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <footer class="footerx fixed-bottom">
+        <div class="bg-dark text-light pt-2">
+            <div class="text-center">
+                <a href="https://facebook.com" target="_blank"><img src="../img/icono1.png" class="rounded" alt="facebookicon" title="Facebook" width="5%"></a>
+                <img src="../img/icono2.png" class="rounded" alt="" title="" width="5%">
+                <img src="../img/icono3.png" class="rounded" alt="" title="" width="5%">
+            </div>
+            <p class="copy text-center no-margin">&copy; Todos los derechos reservados al creador - 2023 <br> DiabeCare</p>
+        </div>
+    </footer>
+
+    <script src="../js/historial_diagnosticos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/session.js"></script>
+</body>
+</html>

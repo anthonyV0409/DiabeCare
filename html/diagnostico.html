@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Registro de Diagnóstico</title>
+    <link rel="icon" type="image.jpg" href="../img/censoimg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-auto">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/DiabeCareLogo2.png" width="auto" height="auto" class="d-inline-block align-top" alt="DiabeCareLogo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="links">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" aria-current="page" href="registroglucosa.html">Registro Glucosa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="diagnostico.html">Diagnóstico</a>
+                    </li>
+                </ul>
+                <span id="nombre-usuario" class="text-light"></span>
+                <button id="cerrar-sesion" class="btn btn-primary" onclick="cerrargeneral()">Cerrar sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center mt-5">
+        <h1 class="h3x">Registro de Diagnóstico</h1>
+        <form id="diagnostic-form" class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="pregnancies" class="form-label">¿Cuántas veces ha estado embarazada?</label>
+                        <input type="number" name="pregnancies" id="pregnancies" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="glucose" class="form-label">¿Cuál es su nivel de glucosa en sangre en ayunas?</label>
+                        <input type="number" step="any" name="glucose" id="glucose" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="blood_pressure" class="form-label">¿Cuál es su presión arterial?</label>
+                        <input type="number" name="blood_pressure" id="blood_pressure" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="skin_thickness" class="form-label">¿Cuál es el grosor de su pliegue cutáneo en el tríceps?</label>
+                        <input type="number" name="skin_thickness" id="skin_thickness" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="insulin" class="form-label">¿Cuál es su nivel de insulina en sangre en ayunas?</label>
+                        <input type="number" name="insulin" id="insulin" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bmi" class="form-label">¿Cuál es su índice de masa corporal (IMC)?</label>
+                        <input type="number" step="any" name="bmi" id="bmi" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="diabetes_pedigree" class="form-label">¿Cuál es su función de pedigrí de diabetes (FPD)?</label>
+                        <input type="number" step="any" name="diabetes_pedigree" id="diabetes_pedigree" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">¿Cuántos años tiene?</label>
+                        <input type="number" name="age" id="age" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Registrar Diagnóstico</button>
+            </div>
+        </form>
+        <a href="historial_diagnosticos.html" class="text-center">Ver historial de diagnosticos</a>
+    </div>
+
+    <footer class="footerx">
+        <div class="bg-dark text-light pt-2">
+            <div class="text-center">
+                <a href="https://facebook.com" target="_blank"><img src="../img/icono1.png" class="rounded" alt="facebookicon" title="Facebook" width="5%"></a>
+                <img src="../img/icono2.png" class="rounded" alt="" title="" width="5%">
+                <img src="../img/icono3.png" class="rounded" alt="" title="" width="5%">
+            </div>
+            <p class="copy text-center no-margin">&copy; Todos los derechos reservados al creador - 2023 <br> DiabeCare</p>
+        </div>
+    </footer>
+
+    <!-- Modal para mostrar el resultado del diagnóstico y recomendaciones -->
+<div class="modal fade" id="diagnosisResultModal" tabindex="-1" role="dialog" aria-labelledby="diagnosisResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="diagnosisResultModalLabel">Resultado del Diagnóstico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="diagnosisResultContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal de Error -->
+<div class="modal" tabindex="-1" role="dialog" id="errorModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Debe completar todos los campos antes de enviar el formulario.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="../js/session.js"></script>
+    <script src="../js/diagnosticos.js"></script>
+</body>
+</html>
